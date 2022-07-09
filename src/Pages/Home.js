@@ -5,7 +5,7 @@ import './Home.css';
 import SearchBox from '../Reuseable/SearchBox';
 
 
-const Home = ({ home, search, searched, filter, dropDown, selected, individualCountry, filteredDropDown, setFilteredDropDown }) => {
+const Home = ({ home, search, searched, filter, dropDown, selected, individualCountry,}) => {
 
   const selectedCountry = home.filter(
     (chosen) => chosen.region === selected

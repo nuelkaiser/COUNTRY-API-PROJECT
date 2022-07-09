@@ -1,5 +1,8 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './Details.css';
+import { Link } from 'react-router-dom';
 
 const Details = ({ individual }) => {
 
@@ -7,12 +10,14 @@ const Details = ({ individual }) => {
   return (
     <div className='details'>
 
-      <button className='back'>
-        Back
-      </button>
+      <Link to='/'>
+        <button className='back'>
+          <FontAwesomeIcon icon={faArrowLeft} className='left' /> Back
+        </button>
+      </Link>
 
       <div className='flag-container'>
-        <img className='flag' src= {individual.flag} alt='flags'/>
+        <img className='flag' src={individual.flag} alt='flags' />
       </div>
 
       <div className='info-container'>
@@ -53,7 +58,7 @@ const Details = ({ individual }) => {
             </p>
 
             <p className='details-info'>
-              Languages: <span> {individual.languages.map((lang) => `${ lang.name }`)}</span>
+              Languages: <span> {individual.languages.map((lang) => `${lang.name}`)}</span>
             </p>
 
           </div>

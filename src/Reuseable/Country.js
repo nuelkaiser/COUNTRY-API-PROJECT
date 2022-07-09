@@ -1,27 +1,27 @@
 import React from 'react';
 import './Country.css'
 
-const Country = ({ name, flag, population, region, capital, setSelectedCountry }) => {
+const Country = ({ individualCountry, data }) => {
     return (
-        <div className='single-country'  onClick={() => setSelectedCountry(name)}>
+        <div className='single-country' onClick={() => individualCountry(data)}>
 
-            <img className='flag-image' src={flag} alt='avatar' />
+            <img className='flag-image' src={data.flag} alt='avatar' />
 
             <div className='country-text'>
                 <h3 className='country-name'>
-                    {name}
+                    {data.name}
                 </h3>
 
                 <p className='country-info'>
-                  Population: <span> {population} </span>
+                    Population: <span> {data.population} </span>
                 </p>
 
                 <p className='country-info'>
-                 Region: <span> {region} </span>
+                    Region: <span> {data.region} </span>
                 </p>
 
                 <p className='country-info'>
-                 Capital: <span> {capital} </span>
+                    Capital: <span> {data.capital} </span>
                 </p>
             </div>
 

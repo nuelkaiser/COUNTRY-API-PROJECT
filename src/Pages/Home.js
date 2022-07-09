@@ -5,18 +5,13 @@ import './Home.css';
 import SearchBox from '../Reuseable/SearchBox';
 
 
-const Home = ({ home, search, searched, filter, dropDown, selected, setSelectedCountry }) => {
+const Home = ({ home, search, searched, filter, dropDown, selected, individualCountry, filteredDropDown, setFilteredDropDown }) => {
 
   const selectedCountry = home.filter(
-    (chosen) => {
-      if (chosen.region === selected) {
-        return chosen.region
-      } else {
-        return undefined
-      }
-    }
+    (chosen) => chosen.region === selected
+  
   )
-
+  console.log(selectedCountry)
 
 
   return (
@@ -25,8 +20,8 @@ const Home = ({ home, search, searched, filter, dropDown, selected, setSelectedC
       <div className='search-help'>
         <SearchBox home={home} search={search} searched={searched} />
 
-        <select placeholder='Find region' className='select-container' aria-label='Filter Counries by Region' onChange={(e) => dropDown(e.target.value)}>
-          <option className='option' value='All'>Filter by Region</option>
+        <select placeholder='Find region' className='select-container' aria-label='Filter Countries by Region' onChange={(e) => dropDown(e.target.value)}>
+          <option className='option' value=''>Filter by Region</option>
           <option className='option' value='Africa'>Africa</option>
           <option className='option' value='Americas'>America</option>
           <option className='option' value='Asia'>Asia</option>
@@ -43,12 +38,8 @@ const Home = ({ home, search, searched, filter, dropDown, selected, setSelectedC
               (i) => (
                 <Link to='/Details' className='link' key={i.name} >
                   <Country name={i.name}
-                    flag={i.flags.png}
-                    text={i.text}
-                    population={i.population}
-                    region={i.region}
-                    capital={i.capital}
-                    setSelectedCountry={setSelectedCountry}
+                    individualCountry={individualCountry}
+                    data={i}
                   />
                 </Link>
               )
@@ -59,12 +50,8 @@ const Home = ({ home, search, searched, filter, dropDown, selected, setSelectedC
                 (i) => (
                   <Link to='/Details' className='link' key={i.name} >
                     <Country name={i.name}
-                      flag={i.flags.png}
-                      text={i.text}
-                      population={i.population}
-                      region={i.region}
-                      capital={i.capital}
-                      setSelectedCountry={setSelectedCountry}
+                      individualCountry={individualCountry}
+                      data={i}
                     />
                   </Link>
                 )
@@ -73,38 +60,33 @@ const Home = ({ home, search, searched, filter, dropDown, selected, setSelectedC
 
               &&
 
-              selected !== '' ? (
-              selectedCountry.map(
+              selected === '' ? (
+              home.map(
                 (i) => (
                   <Link to='/Details' className='link' key={i.name}>
                     <Country name={i.name}
-                      flag={i.flags.png}
-                      text={i.text}
-                      population={i.population}
-                      region={i.region}
-                      capital={i.capital}
-                      setSelectedCountry={setSelectedCountry}
+                      individualCountry={individualCountry}
+                      data={i}
                     />
                   </Link>
                 )
               )
             ) :
               (
-                home.map(
+                selectedCountry.map(
                   (i) => (
                     <Link to='/Details' className='link' key={i.name}>
                       <Country name={i.name}
-                        flag={i.flags.png}
-                        text={i.text}
-                        population={i.population}
-                        region={i.region}
-                        capital={i.capital}
-                        setSelectedCountry={setSelectedCountry}
+                        individualCountry={individualCountry}
+                        data={i}
                       />
                     </Link>
                   )
                 )
               )
+
+
+
 
 
         }

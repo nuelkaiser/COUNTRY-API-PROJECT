@@ -15,15 +15,15 @@ function App() {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [filteredDropDown, setFilteredDropDown] = useState([]);
   const [selected, setSelected] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState(0);
+  const [individual, setIndividual] = useState({})
 
-  selectedCountry && (console.log(selectedCountry))
+
 
   useEffect(() => {
     fetch('https://restcountries.com/v2/all')
       .then(data => { return data.json()})
       .then(result => {setcountry(result)})
-  }, [country])
+  }, [filteredCountries, filteredDropDown, individual])
 
   const searched = (chosen) => {
     setSearch(chosen)
@@ -44,17 +44,18 @@ function App() {
     setSelected(you)    
   }
 
- 
-  
-  
+  const individualCountry = (you) => {
+    setIndividual(you)
+    console.log(individual)
+  }
 
   return (
     country ? 
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home home={country} search={search} searched={searched} filter={filteredCountries} selected={selected} dropDown={dropDown} filteredDropDown={filteredDropDown} setFilteredDropDown={setFilteredDropDown} setSelectedCountry={setSelectedCountry} />} />
-        <Route path="/Details" element={<Details  selectedCountry={selectedCountry} />}/>
+        <Route path="/" element={<Home home={country} search={search} searched={searched} filter={filteredCountries} selected={selected} dropDown={dropDown} filteredDropDown={filteredDropDown} setFilteredDropDown={setFilteredDropDown} individualCountry={individualCountry} setFilteredCountries={setFilteredCountries}/>} />
+        <Route path="/Details" element={<Details  individual={individual}/>}/>
       </Routes>
     </BrowserRouter> : 
     <p>Give me a mintute Please?</p>

@@ -16,6 +16,7 @@ function App() {
   const [filteredDropDown, setFilteredDropDown] = useState([]);
   const [selected, setSelected] = useState('');
   const [individual, setIndividual] = useState({})
+  const [click, setClick] = useState(false)
 
 
 
@@ -46,16 +47,20 @@ function App() {
 
   const individualCountry = (you) => {
     setIndividual(you)
-    console.log(individual)
+  }
+
+  const clicked = () => {
+    setClick(!click)
+    console.log(click)
   }
 
   return (
     country ? 
     <BrowserRouter>
-      <Nav />
+      <Nav clicked={clicked} click={click}/>
       <Routes>
-        <Route path="/" element={<Home home={country} search={search} searched={searched} filter={filteredCountries} selected={selected} dropDown={dropDown} filteredDropDown={filteredDropDown} setFilteredDropDown={setFilteredDropDown} individualCountry={individualCountry} setFilteredCountries={setFilteredCountries}/>} />
-        <Route path="/Details" element={<Details  individual={individual}/>}/>
+        <Route path="/" element={<Home click={click} home={country} search={search} searched={searched} filter={filteredCountries} selected={selected} dropDown={dropDown} filteredDropDown={filteredDropDown} setFilteredDropDown={setFilteredDropDown} individualCountry={individualCountry} setFilteredCountries={setFilteredCountries}/>} />
+        <Route path="/Details" element={<Details  individual={individual} click={click}/>}/>
       </Routes>
     </BrowserRouter> : 
     <p>Give me a mintute Please?</p>

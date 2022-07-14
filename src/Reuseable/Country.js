@@ -1,9 +1,9 @@
 import React from 'react';
 import './Country.css'
 
-const Country = ({ individualCountry, data }) => {
+const Country = ({ individualCountry, data, click }) => {
     return (
-        <div className='single-country' onClick={() => individualCountry(data)}>
+        <div className={click ? 'single-light' : 'single-country'} onClick={() => individualCountry(data)}>
 
             <img className='flag-image' src={data.flag} alt='avatar' />
 

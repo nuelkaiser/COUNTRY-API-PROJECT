@@ -114,7 +114,8 @@
         gap: 3em;
     }
 
-    .details-container {
+    .details-container,
+    .details-light {
         height: 120vh;
     }
 }

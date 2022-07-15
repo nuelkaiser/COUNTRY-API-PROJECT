@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './Details.css';
 import { Link } from 'react-router-dom';
-import Border from '../Reuseable/Border';
+//import Border from '../Reuseable/Border';
 
 const Details = ({ individual, click }) => {
 

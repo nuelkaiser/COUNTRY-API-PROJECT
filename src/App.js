@@ -16,7 +16,8 @@ function App() {
   const [filteredDropDown, setFilteredDropDown] = useState([]);
   const [selected, setSelected] = useState('');
   const [individual, setIndividual] = useState({})
-  const [click, setClick] = useState(false)
+  const [click, setClick] = useState(false);
+  let [num, setNum] = useState(8)
 
 
 
@@ -43,6 +44,7 @@ function App() {
 
   const dropDown = (you) => {
     setSelected(you)    
+    setNum(8)
   }
 
   const individualCountry = (you) => {
@@ -51,7 +53,6 @@ function App() {
 
   const clicked = () => {
     setClick(!click)
-    console.log(click)
   }
 
   return (
@@ -59,7 +60,7 @@ function App() {
     <BrowserRouter>
       <Nav clicked={clicked} click={click}/>
       <Routes>
-        <Route path="/" element={<Home click={click} home={country} search={search} searched={searched} filter={filteredCountries} selected={selected} dropDown={dropDown} filteredDropDown={filteredDropDown} setFilteredDropDown={setFilteredDropDown} individualCountry={individualCountry} setFilteredCountries={setFilteredCountries}/>} />
+        <Route path="/" element={<Home click={click} home={country} search={search} searched={searched} filter={filteredCountries} selected={selected} dropDown={dropDown} filteredDropDown={filteredDropDown} setFilteredDropDown={setFilteredDropDown} individualCountry={individualCountry} setFilteredCountries={setFilteredCountries} num={num} setNum={setNum}/>} />
         <Route path="/Details" element={<Details  individual={individual} click={click}/>}/>
       </Routes>
     </BrowserRouter> : 

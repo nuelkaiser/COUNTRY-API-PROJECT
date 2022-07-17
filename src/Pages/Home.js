@@ -3,14 +3,48 @@ import Country from '../Reuseable/Country';
 import { Link } from "react-router-dom";
 import './Home.css';
 import SearchBox from '../Reuseable/SearchBox';
+import Display from '../Reuseable/Display';
 
-
-const Home = ({ home, search, searched, filter, dropDown, selected, individualCountry, click }) => {
+const Home = ({ home, search, searched, filter, dropDown, selected, individualCountry, click, num, setNum }) => {
 
   const selectedCountry = home.filter(
     (chosen) => chosen.region === selected
 
   )
+
+
+  const setter = () => {
+      setNum(num + 4)
+  }
+  console.log(num)
+
+
+  const homeItems = home.slice(0, num).map(
+    (i) => (
+      <Link to='/Details' className='link' key={i.name} >
+        <Country name={i.name}
+          individualCountry={individualCountry}
+          data={i}
+          click={click}
+        />
+      </Link>
+    )
+  )
+
+  const selectedItems = selectedCountry.slice(0, num).map(
+    (i) => (
+      <Link to='/Details' className='link' key={i.name} >
+        <Country name={i.name}
+          individualCountry={individualCountry}
+          data={i}
+          click={click}
+        />
+      </Link>
+    )
+  )
+
+ 
+
 
   return (
     <div className='hidden'>
@@ -46,56 +80,21 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
               )
             ) :
               (
-                home.map(
-                  (i) => (
-                    <Link to='/Details' className='link' key={i.name} >
-                      <Country name={i.name}
-                        individualCountry={individualCountry}
-                        data={i}
-                        click={click}
-                      />
-                    </Link>
-                  )
-                )
+                homeItems
               )
 
                 &&
 
                 selected === '' ? (
-                home.map(
-                  (i) => (
-                    <Link to='/Details' className='link' key={i.name}>
-                      <Country name={i.name}
-                        individualCountry={individualCountry}
-                        data={i}
-                        click={click}
-                      />
-                    </Link>
-                  )
-                )
+                homeItems
               ) :
                 (
-                  selectedCountry.map(
-                    (i) => (
-                      <Link to='/Details' className='link' key={i.name}>
-                        <Country name={i.name}
-                          individualCountry={individualCountry}
-                          data={i}
-                          click={click}
-                        />
-                      </Link>
-                    )
-                  )
+                 selectedItems
                 )
-
-
-
-
 
           }
         </div>
-
-
+        <Display setter={setter}/>
       </div>
     </div>
 

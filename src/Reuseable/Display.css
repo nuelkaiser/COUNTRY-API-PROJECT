@@ -1,25 +1,31 @@
  * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;
+ }
 
-.lightmode {
-    color: hsl(200, 15%, 8%);
-    margin: 0px auto;
-    padding-bottom: 12px;
-    width: 85%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-}
+ .lightmode {
+     color: hsl(200, 15%, 8%);
+     cursor: pointer;
+     display: flex;
+     justify-content: center;
+     background: hsl(0, 0%, 100%);
+     padding: 10px 15px;
+     border-radius: 7px;
+     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+ }
 
-.darkmode {
-    color:  hsl(0, 0%, 100%);
-    margin: 0px auto;
-    padding-bottom: 12px;
-    width: 85%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-}
+ .darkmode {
+     color: hsl(0, 0%, 100%);
+     background: hsl(209, 23%, 22%);
+     cursor: pointer;
+     display: flex;
+     justify-content: center;
+     padding: 10px 15px;
+     border-radius: 7px;
+     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+ }

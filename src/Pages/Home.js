@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import './Home.css';
 import SearchBox from '../Reuseable/SearchBox';
 import Display from '../Reuseable/Display';
+import DisplayLess from '../Reuseable/DisplayLess';
 
 const Home = ({ home, search, searched, filter, dropDown, selected, individualCountry, click, num, setNum }) => {
 
@@ -14,10 +15,18 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
 
 
   const setter = () => {
-      setNum(num + 4)
+    setNum(num + 4)
+  }
+
+
+  const lesser = () => {
+    setNum(num - 4)
+
+    if (num === 8) {
+      setNum(num)
+    } 
   }
   console.log(num)
-
 
   const homeItems = home.slice(0, num).map(
     (i) => (
@@ -43,7 +52,7 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
     )
   )
 
- 
+
 
 
   return (
@@ -89,12 +98,15 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
                 homeItems
               ) :
                 (
-                 selectedItems
+                  selectedItems
                 )
 
           }
         </div>
-        <Display click={click} setter={setter}/>
+        <div className='display-cont'>
+          <Display click={click} setter={setter} />
+          <DisplayLess click={click} lesser={lesser} />
+        </div>
       </div>
     </div>
 

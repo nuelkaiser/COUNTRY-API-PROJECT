@@ -94,7 +94,7 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
 
           }
         </div>
-        <Display setter={setter}/>
+        <Display click={click} setter={setter}/>
       </div>
     </div>
 

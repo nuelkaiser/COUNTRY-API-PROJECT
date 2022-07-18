@@ -1,0 +1,25 @@
+ * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.lightmode {
+    color: hsl(200, 15%, 8%);
+    margin: 0px auto;
+    padding-bottom: 12px;
+    width: 85%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.darkmode {
+    color:  hsl(0, 0%, 100%);
+    margin: 0px auto;
+    padding-bottom: 12px;
+    width: 85%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import './Display.css';
 
-const Display = ({setter, click}) => {
+const Display = ({setter, click, id}) => {
   return (
-    <div className={click ? 'lightmode' : 'darkmode'} onClick={setter}>
+    <div id={id} className={click ? 'lightmode' : 'darkmode'} onClick={setter}>
         Load More...
     </div>
   )

@@ -1,9 +1,9 @@
 import React from 'react';
 import './Display.css'
 
-const DisplayLess = ({click, lesser}) => {
+const DisplayLess = ({click, lesser, id}) => {
     return (
-        <div className={click ? 'lightmode' : 'darkmode'} onClick={lesser}>
+        <div  id={id} className={click ? 'lightmodeless' : 'darkmodeless'} onClick={lesser}>
             Show Less...
         </div>
     )

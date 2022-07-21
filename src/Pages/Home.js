@@ -8,6 +8,10 @@ import DisplayLess from '../Reuseable/DisplayLess';
 
 const Home = ({ home, search, searched, filter, dropDown, selected, individualCountry, click, num, setNum }) => {
 
+  const ShowLess = document.getElementById('id');
+  const ShowMore = document.getElementById('more');
+
+
   const selectedCountry = home.filter(
     (chosen) => chosen.region === selected
 
@@ -16,6 +20,8 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
 
   const setter = () => {
     setNum(num + 4)
+
+    ShowLess.style.display = 'flex'
   }
 
 
@@ -24,9 +30,17 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
 
     if (num === 8) {
       setNum(num)
-    } 
+    }
+
+    ok()
   }
-  console.log(num)
+
+  const ok = () => {
+    if (num === 12) {
+      ShowLess.style.display = 'none'
+    }
+  }
+
 
   const homeItems = home.slice(0, num).map(
     (i) => (
@@ -51,6 +65,9 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
       </Link>
     )
   )
+
+
+  console.log(selectedItems.length -1)
 
 
 
@@ -104,8 +121,8 @@ const Home = ({ home, search, searched, filter, dropDown, selected, individualCo
           }
         </div>
         <div className='display-cont'>
-          <Display click={click} setter={setter} />
-          <DisplayLess click={click} lesser={lesser} />
+          <Display id={'more'} click={click} setter={setter} />
+          <DisplayLess id={'id'} click={click} lesser={lesser} />
         </div>
       </div>
     </div>

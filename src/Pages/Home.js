@@ -9,7 +9,6 @@ import DisplayLess from '../Reuseable/DisplayLess';
 const Home = ({ home, search, searched, filter, dropDown, selected, individualCountry, click, num, setNum }) => {
 
   const ShowLess = document.getElementById('id');
-  const ShowMore = document.getElementById('more');
 
 
   const selectedCountry = home.filter(
